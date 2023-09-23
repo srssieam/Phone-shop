@@ -6,3 +6,4 @@ const myCreatedRouter = createBrowserRouter([
         element: <div>hello world</div>
     }
 ])
+export default myCreatedRouter;
