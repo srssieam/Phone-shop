@@ -29,7 +29,7 @@ const myCreatedRouter = createBrowserRouter([
             {
                 path:'/phones/:id',  // dynamic path. here, id can be 1, 2 or 3......
                 element:<PhoneDetails></PhoneDetails>,
-                loader: ()=>fetch('phones.json')
+                loader: ()=>fetch('/phones.json')
             }
         ]
     }
