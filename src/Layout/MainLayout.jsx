@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const MainLayout = () => {
     const loc = useLocation()
     useEffect(()=>{
-        document.title = loc.pathname;
+        document.title = `Phone ${loc.pathname.replace("/","-")}`;
     },[loc.pathname])
 
     return (
