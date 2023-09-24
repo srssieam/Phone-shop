@@ -19,7 +19,7 @@ const myCreatedRouter = createBrowserRouter([
                 element: <Favourite></Favourite>
             },
             {
-                path:'login',
+                path:'/login',
                 element: <Login></Login>
             }
         ]
