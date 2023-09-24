@@ -1,7 +1,7 @@
 
 
-const DetailsCard = ({details}) => {
-    const {id, phone_name, brand_name, rating, price, image}= details
+const DetailsCard = (details) => {
+    console.log(details, 'from')
     return (
         <div>
             
