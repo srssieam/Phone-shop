@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Favourite from "../pages/Favourite/Favourite";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PhoneDetails from "../pages/PhoneDetails/PhoneDetails";
 
 
 const myCreatedRouter = createBrowserRouter([
@@ -24,6 +25,10 @@ const myCreatedRouter = createBrowserRouter([
             {
                 path:'/login',
                 element: <Login></Login>
+            },
+            {
+                path:'/phones/:id',  // dynamic path. here, id can be 1, 2 or 3......
+                element:<PhoneDetails></PhoneDetails>
             }
         ]
     }
