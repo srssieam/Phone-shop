@@ -5,6 +5,7 @@ import FavouriteCart from "./FavouriteCart";
 const Favourite = () => {
     const [favorite, setFevourite]= useState([]);
     const [noFound, setNoFound]= useState();
+    const [isShow,setIsShow] = useState(false)
 
     useEffect(()=>{
         const favouriteItem =JSON.parse(localStorage.getItem('favourite'));
@@ -19,7 +20,8 @@ const Favourite = () => {
 
     const handleRemove =()=>{
         localStorage.clear()
-        setFevourite([])
+        setFevourite([]);
+        setNoFound('No data found')
     }
     return (
         <div>
@@ -34,6 +36,10 @@ const Favourite = () => {
 
                 {favorite.map( phone => <FavouriteCart key={phone.id} favouritePhone={phone}></FavouriteCart>)}
             </div>)}
+
+            {favorite.length > 2 && <button onClick={()=>setIsShow(!isShow)} className="px-5 bg-green-200 block mx-auto">
+            {isShow ? "See less" : "See more"}
+          </button>}
         </div>
     )
 };
