@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
-import Home from "../Home/Home";
+import Home from "../pages/Home/Home";
+import Favourite from "../pages/Favourite/Favourite";
+import Login from "../pages/Login/Login";
+
 
 const myCreatedRouter = createBrowserRouter([
     {
@@ -10,6 +13,14 @@ const myCreatedRouter = createBrowserRouter([
             {
                 path:'/',   // here we have to use same path to display the beginning page of the website
                 element: <Home></Home>   // This component will display at the beginning  
+            },
+            {
+                path:'/favourite',
+                element: <Favourite></Favourite>
+            },
+            {
+                path:'login',
+                element: <Login></Login>
             }
         ]
     }
