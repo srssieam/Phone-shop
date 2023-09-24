@@ -12,7 +12,8 @@ const myCreatedRouter = createBrowserRouter([
         children:[
             {
                 path:'/',   // here we have to use same path to display the beginning page of the website
-                element: <Home></Home>   // This component will display at the beginning  
+                element: <Home></Home>,   // This component will display at the beginning
+                loader: ()=>fetch('/phones.json')  
             },
             {
                 path:'/favourite',
