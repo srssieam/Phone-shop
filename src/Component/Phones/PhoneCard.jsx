@@ -1,3 +1,4 @@
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const PhoneCard = ({ phone }) => {
@@ -23,7 +24,11 @@ const PhoneCard = ({ phone }) => {
                     </p>
                 </div>
                 <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-                    {rating}
+                   
+                    <Rating
+                    initialRating={rating}
+                    readonly
+                    />
                 </p>
             </div>
             <div className="p-6 pt-0">
