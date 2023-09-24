@@ -1,10 +1,28 @@
 
 
 const DetailsCard = ({ details }) => {
-    const { phone_name, brand_name, image } = details;
+    const { id, phone_name, brand_name, image } = details;
 
     const handleAddToFavourite = () =>{
-        
+        const favouriteItemsArray = [] // step 1
+
+        const favouriteItems = JSON.parse(localStorage.getItem('favourite')) //step 2 get the array 
+
+        if(!favouriteItems){  // if there is no item in this array then push that item in the array and then set the new array in local storage
+            favouriteItemsArray.push(details); // step 3
+            localStorage.setItem('favourite', JSON.stringify(favouriteItemsArray)); // step 4
+        }else{ 
+            const isExist = favouriteItems.find(item => item.id === id) // step 7
+            if(!isExist){
+                favouriteItemsArray.push(...favouriteItems, details) // step 8
+                localStorage.setItem('favourite', JSON.stringify(favouriteItemsArray))  // step 9
+            }else{
+                alert('you have already added this item')
+            }
+
+            // favouriteItemsArray.push(...favouriteItems, details) // step 5
+            // localStorage.setItem('favourite', JSON.stringify(favouriteItemsArray)); // step 6
+        }
     }
 
     return (
