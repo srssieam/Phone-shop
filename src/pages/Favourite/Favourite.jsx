@@ -5,13 +5,16 @@ import FavouriteCart from "./FavouriteCart";
 const Favourite = () => {
     const [favorite, setFevourite] = useState([]);
     const [noFound, setNoFound] = useState();
-    const [isShow, setIsShow] = useState(false)
+    const [isShow, setIsShow] = useState(false);
+    const [totalPrice,setTotalPrice] = useState(0)
 
     useEffect(() => {
         const favouriteItem = JSON.parse(localStorage.getItem('favourite'));
 
         if (favouriteItem) {
             setFevourite(favouriteItem)
+            const total = favouriteItem.reduce((preValue,currentItem)=> preValue + currentItem.price,0);
+            setTotalPrice(total);
         } else {
             setNoFound('No data found')
         }
@@ -28,7 +31,10 @@ const Favourite = () => {
 
             {
                 favorite.length > 0 &&
-                <div><button onClick={handleRemove} className="px-5 bg-green-200 block mx-auto">Deleted All favorites</button></div>
+                <div>
+                    <button onClick={handleRemove} className="px-5 bg-green-200 block mx-auto">Deleted All favorites</button>
+                    <h1>Total price : {totalPrice}</h1>
+                </div>
             }
             {/* {noFound ? (<p className="h-[80vh] flex justify-center items-center">{noFound}</p>) : (<div></div>)} */}
             {noFound ? (<p className="h-[80vh] flex justify-center items-center">{noFound}</p>) :
