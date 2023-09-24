@@ -3,12 +3,14 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Favourite from "../pages/Favourite/Favourite";
 import Login from "../pages/Login/Login";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 const myCreatedRouter = createBrowserRouter([
     {
         path:'/',
         element: <MainLayout></MainLayout>,  // Inside this component other component will remain fixed and displayed always except <outlet/>
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',   // here we have to use same path to display the beginning page of the website
